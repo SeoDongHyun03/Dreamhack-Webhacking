@@ -43,7 +43,7 @@ CSP는 **인라인 코드** (Inline Code)를 **유해하다**고 간주함
 ```html
 <script>alert(1);</script>
 ```
-예를 들어, 다음과 같이 script 태그 안에 **src** 없이 바로 코드를 넣은 것을 **인라인 코드** 라고 한다.  
+예를 들어, 위와 같이 script 태그 안에 **src** 없이 바로 코드를 넣은 것을 **인라인 코드** 라고 한다.  
 ```html
 <script src="alert.js"></script>
 ```
