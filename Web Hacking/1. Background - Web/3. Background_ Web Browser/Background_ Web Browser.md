@@ -31,7 +31,6 @@ URL은 **Scheme, Authority (Userinfo, Host, Port), Path, Query, Fragment** 등�
 Host는 **Domain Name, IP Address**의 값을 가질 수 있다.  
 
 **IP Address** : 네트워크상에서 통신이 이루어질 때 **장치를 식별하기 위해 사용되는 주소**  
-
 **Domain Name** : 인터넷의 실제 IP 주소와 연결된 **기억하기 쉬운 이름** (IP주소는 외우기 힘들어서..)  
 
 브라우저는 **Domain Name Server(DNS)** 에 **Domain Name**을 질의하고, DNS가 **응답한 IP Address를 사용**한다.  
