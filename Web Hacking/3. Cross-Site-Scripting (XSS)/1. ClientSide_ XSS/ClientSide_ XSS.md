@@ -97,7 +97,6 @@ window.open("http://hacker.dreamhack.io/")
 ### Reflected XSS
 
 **Reflected XSS** : 서버가 **악성 스크립트가 담긴 요청을 출력**할 때 발생함(예 : 검색결과가 URL에 포함되는 경우 -> 검색엔진)
-
 -> Stored XSS와는 다르게 **URL과 같은 이용자의 요청**에 의해 발생
 --> 이용자들이 악성 링크에 접속하게 유도해야함(**Click Jacking** 또는 **Open Redirect**와 같은 취약점과 연계)
 
@@ -120,7 +119,6 @@ window.open("http://hacker.dreamhack.io/")
 -   **Reflected XSS**: 악성 스크립트가 **이용자 요청 내에** 존재, 이용자가 악성 스크립트가 포함된 요청을 보낸 후 **응답을 출력**할 때 발생
 
 # 퀴즈
-
 1. 이용자의 요청에 악성 스크립트가 포함되는 XSS는?  
 **답 : Reflected XSS**
 
