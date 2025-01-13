@@ -93,7 +93,7 @@ location.replace('http://bank.dreamhack.io/sendmoney?to=Dreamhack&amount=1337');
 
 # 마치며
 ## 마치며
--   **Cross Site Request Forgery (CSRF)**: 사이트 간 요청 위조. **이용자**가 자신의 **의지와는 무관**하게 공격자가 의도한 행위를 **특정 웹사이트에 요청**하게 만드는 공격.
+- **Cross Site Request Forgery (CSRF)**: 사이트 간 요청 위조. **이용자**가 자신의 **의지와는 무관**하게 공격자가 의도한 행위를 **특정 웹사이트에 요청**하게 만드는 공격.
 
 # 퀴즈
 
