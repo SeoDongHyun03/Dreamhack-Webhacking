@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
 위와 같이 **Username, Password**를 적어서 로그인하는 페이지이다.  
 
-실제로 로그인을 하면 **init_db** 에서 설정한 각 계정의 **Secert(admin에서는 flag)**를 볼 수 있다.  
+실제로 로그인을 하면 **init_db** 에서 설정한 각 계정의 **Secert(admin에서는 flag)** 를 볼 수 있다.  
 
 예시로 Username : guest, Password : guestpassword를 입력하면, guest로 로그인된다.  
 
