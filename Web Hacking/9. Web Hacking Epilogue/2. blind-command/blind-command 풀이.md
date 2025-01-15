@@ -29,19 +29,19 @@ app.run(host='0.0.0.0', port=8000)
 2. 만약, request method 가 **GET 이면, 아무것도 안함**
 3. 그게 아니라 request method 가 **GET이 아니면, 입력받은 cmd 를 실행**한다.
 
-<img src="1.jpg"> <img src="2.jpg">  
+<img src="1.jpg">  <img src="2.jpg">  
 
 처음에 들어가면, cmd를 입력하라는 문구가 나온다. 
 
 그리고 예시를 작성하면, 다음과 같이 적은 cmd가 나오는 것을 알 수 있다.  
 
-<img src="3.jpg"> <img src="4.jpg">  
+<img src="3.jpg">  <img src="4.jpg">  
 
 burp suite를 이용해 cmd에 ls를 적었을 때의 request message를 봤다.  
 
 예시를 들어서, **GET 메소드로 request**를 한다면, 위의 이미지처럼 그냥 **아무것도 하지 않고 'ls' 가 나오는 것**을 알 수 있다.  
 
-<img src="5.jpg"> <img src="6.jpg">  
+<img src="5.jpg">  <img src="6.jpg">  
 
 그래서 GET 메소드 말고 다른 메소드인 **POST 를 통해 request** 를 했다.  
 
@@ -65,12 +65,12 @@ burp suite를 이용해 cmd에 ls를 적었을 때의 request message를 봤다.
 
 이럴 때 **어떤 메소드를 허가**하는지 알 수 있는 메소드가 있다.  
 
-<img src="7.jpg"> <img src="8.jpg">  
+<img src="7.jpg">  <img src="8.jpg">  
 
 바로 `OPTION` 이다.(https://gnaseel.tistory.com/24)  
-그래서 위의 이미지처럼 OPTION 을 이용해서 request 를 했고, 이에 대한 response message로 **HEAD, OPTIONS, GET** 을 사용할 수 있다는 것을 알았다.  
+그래서 위의 이미지처럼 OPTION 을 이용해서 request 를 했고, 이에 대한 response message로 **HEAD, OPTIONS, GET** 을 사용할 수 있다는 것을 알았다.(참고로 response에서 `405 METHOD NOT ALLOWED` 가 발생했는데, 다시 문제 링크를 만들고 했을 때는 `200 OK` 가 나왔음. 일단 **어떤 메소드가 허용되는지**를 아는 것이 중요하기 때문에 크게 영향 없을 듯)  
 
-<img src="9.jpg"> <img src="17.jpg">  
+<img src="9.jpg">  <img src="17.jpg">  
 
 `HEAD(GET과 동일, 그러나 response body가 없음)`로 request 하면 POST 때처럼 오류가 발생하지 않는다.  
 
