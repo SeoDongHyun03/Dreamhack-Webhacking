@@ -90,19 +90,23 @@ app.run(host="0.0.0.0", port=8000)
 ```
 코드를 보면, path가 여러가지 있다.  
 
-<img src="3.jpg">  
 1. / : index.html을 return 함  
 
-<img src="4.jpg">  
+<img src="3.jpg">  
+
 2. /vuln : ``http://host3.dreamhack.games:24404/vuln?param=%3Cscript%3Ealert(1)%3C/script%3E`` 로 들어간다.  
 -> 이 때, ``<script>``가 먹히는 것을 보고 XSS를 사용할 수 있다는 것을 알 수 있다.  
 
-<img src="5.jpg">  
-3. /memo : **/memo?memo=메모할 문자열** 과 같이 path를 지정하면, 메모할 문자열이 memo 창에 가면 메모된다.  
+<img src="4.jpg">  
+
+3. /memo : 다음과 같이 path를 지정하면(``/memo?memo=메모할 문자열``), 메모할 문자열이 memo 창에 가면 메모된다.  
 -> 우리는 여기에 flag를 출력하게 할 것이다.  
 
-<img src="6.jpg">  
+<img src="5.jpg">  
+
 4. /flag : 답을 입력하는 곳  
+
+<img src="6.jpg">  
 
 여기까지 웹 사이트를 다 살펴보았고, 본격적으로 코드를 살펴본다.  
 
