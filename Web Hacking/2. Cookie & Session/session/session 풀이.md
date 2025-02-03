@@ -3,7 +3,61 @@
 사실 스터디에서 쉬운 이 문제를 풀지 못해서 아쉬웠다.  
 이번에 이 문제를 풀면서 웹 해킹에서 자주 사용하는 **Burp Suite**를 사용해보기로 했다.  
 
-<img src="1.jpg"> <img src="2.jpg">  
+```python
+#!/usr/bin/python3
+from flask import Flask, request, render_template, make_response, redirect, url_for
+
+app = Flask(__name__)
+
+try:
+    FLAG = open('./flag.txt', 'r').read()
+except:
+    FLAG = '[**FLAG**]'
+
+users = {
+    'guest': 'guest',
+    'user': 'user1234',
+    'admin': FLAG
+}
+
+session_storage = {
+}
+
+@app.route('/')
+def index():
+    session_id = request.cookies.get('sessionid', None)
+    try:
+        username = session_storage[session_id]
+    except KeyError:
+        return render_template('index.html')
+
+    return render_template('index.html', text=f'Hello {username}, {"flag is " + FLAG if username == "admin" else "you are not admin"}')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    elif request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        try:
+            pw = users[username]
+        except:
+            return '<script>alert("not found user");history.go(-1);</script>'
+        if pw == password:
+            resp = make_response(redirect(url_for('index')) )
+            session_id = os.urandom(4).hex()
+            session_storage[session_id] = username
+            resp.set_cookie('sessionid', session_id)
+            return resp 
+        return '<script>alert("wrong password");history.go(-1);</script>'
+
+if __name__ == '__main__':
+    import os
+    session_storage[os.urandom(1).hex()] = 'admin'
+    print(session_storage)
+    app.run(host='0.0.0.0', port=8000)
+```
 
 코드는 이전에 cookie, session-basic 문제와 비슷하다.  
 코드에서 한 가지 집중적으로 봐야할 곳은 다음과 같다.  
