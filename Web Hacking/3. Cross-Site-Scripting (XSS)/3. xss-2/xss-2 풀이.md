@@ -95,7 +95,7 @@ app.run(host="0.0.0.0", port=8000)
 
 그런데 하나 다른 점이 있다.  
 
-바로, **이전 문제에서** vuln 페이지에 가면 다음과 같이 url이 입력되고, ``<script>`` 안에 있는 alert(1)이 실행된** 모습을 볼 수 있다.(``http://host3.dreamhack.games:23560/vuln?param=<script>alert(1)</script>``)  
+바로, **이전 문제에서 vuln 페이지에 가면 다음과 같이 url이 입력되고, ``<script>`` 안에 있는 alert(1)이 실행된** 모습을 볼 수 있다.(``http://host3.dreamhack.games:23560/vuln?param=<script>alert(1)</script>``)  
 
 그런데 이번 문제는 ``<script> 가 적용이 되지 않습니다.``  
 여기서 코드를 자세히 보면, 56번째 줄을 보면 다음과 같이 적혀있다.  
