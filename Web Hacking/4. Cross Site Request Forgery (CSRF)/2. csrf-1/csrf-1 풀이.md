@@ -117,7 +117,7 @@ xss 문제와 비슷하지만 약간의 차이점이 있다.
 
 1. /vuln 페이지  
 화면으로 봤을 때, param에 있는 ``<script>alert(1)</script>`` 가 실행되지 않고, ``<*>alert(1)`` 가 표시되어 있다.
-코드에서 58 ~ 60번째 줄을 통해, **frame, script, on** 을 '*' 로 치환해서, xss 가 통하지 않게 막았다.
+코드에서 **/vuln**에서 ``xss_filter``을 통해, **frame, script, on** 을 '*' 로 치환해서, xss 가 통하지 않게 막았다.
 2. /memo 페이지   
 이전 xss 문제와 똑같다.
 3. /notice_flag 페이지  
