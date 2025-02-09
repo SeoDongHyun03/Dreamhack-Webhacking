@@ -7,26 +7,26 @@
 오리진은 **프로토콜 (Protocol, Scheme), 포트 (Port), 호스트 (Host)** 로 구성  
 -> 구성 요소가 **모두 일치**해야 같은 오리진  
 
-https://same-origin.com/ 로 예시
+``https://same-origin.com/`` 로 예시
 
 |URL|결과|이유|
 |-----|---|---|
-|https://same-origin.com/frame.html|Same Origin|Path만 다름|
-|http://same-origin.com/frame.html|Cross Origin|Scheme이 다름|
-|https://cross.same-origin.com/frame.html|Cross Origin|Host가 다름|
-|https://same-origin.com:1234/|Cross Origin|Port가 다름|
+|``https://same-origin.com/frame.html``|Same Origin|Path만 다름|
+|``http://same-origin.com/frame.html``|Cross Origin|Scheme이 다름|
+|``https://cross.same-origin.com/frame.html``|Cross Origin|Host가 다름|
+|``https://same-origin.com:1234/``|Cross Origin|Port가 다름|
 
 ## SOP 실습 - 브라우저 
 SOP는 Cross Origin이 아닌 **Same Origin일 때만 정보를 읽을 수 있도록** 해줍니다.  
 
-예 : https://dreamhack.io 에서 console 창에서 실습  
+예 : ``https://dreamhack.io`` 에서 console 창에서 실습  
 
 ### Same Origin  
 ```javascript
 sameNewWindow = window.open('https://dreamhack.io/lecture');
 console.log(sameNewWindow.location.href);
 ```
-결과 : https://dreamhack.io/lecture (같은 오리진이므로 결과가 잘 나옴)  
+결과 : ``https://dreamhack.io/lecture`` (같은 오리진이므로 결과가 잘 나옴)  
 
 <img src="1.jpg">  
 
@@ -37,7 +37,7 @@ crossNewWindow = window.open('https://theori.io');
 console.log(crossNewWindow.location.href);
 ```
 
-결과 : Origin 오류 (다른 오리진 이므로, 데이터를 읽을 수 없다)  
+결과 : **Origin 오류** (다른 오리진 이므로, 데이터를 읽을 수 없다)  
 
 <img src="2.jpg">  
 
@@ -56,15 +56,15 @@ crossNewWindow.location.href = "https://dreamhack.io";
 # Cross Origin Resource Sharing(CORS)  
 ## SOP 제한 완화  
 
-**이미지나 자바스크립트, CSS** 등의 리소스를 불러오는 **<img>, <style>, <script> 등의 태그** 는 SOP의 **영향을 받지 않습니다.**  
+**이미지나 자바스크립트, CSS** 등의 리소스를 불러오는 ``<img>, <style>, <script>`` 등의 태그 는 SOP의 **영향을 받지 않습니다.**  
 
 웹 서비스에서 동일 출처 정책인 **SOP를 완화**하여 **다른 출처의 데이터를 처리** 해야 하는 경우도 있다.  
 -> 즉, 이런 경우에는 SOP를 완화할 수 있다.  
 
-- 카페: https://cafe.dreamhack.io
-- 블로그: https://blog.dreamhack.io
-- 메일: https://mail.dreamhack.io
-- 메인: https://dreamhack.io
+- 카페: ``https://cafe.dreamhack.io``
+- 블로그: ``https://blog.dreamhack.io``
+- 메일: ``https://mail.dreamhack.io``
+- 메인: ``https://dreamhack.io``
 
 위와 같은 경우에는 호스트가 다르므로 Cross Origin이다.  
 그래서 데이터를 SOP를 피해서 공유해야 한다.(예 : 네이버 서비스)  
@@ -82,12 +82,16 @@ crossNewWindow.location.href = "https://dreamhack.io";
     도와주는 객체 입니다. 이를 통해 HTTP 요청을 보낼 수 있습니다.
 */
 xhr = new XMLHttpRequest();
+
 /* https://theori.io/whoami 페이지에 POST 요청을 보내도록 합니다. */
 xhr.open('POST', 'https://theori.io/whoami');
+
 /* HTTP 요청을 보낼 때, 쿠키 정보도 함께 사용하도록 해줍니다. */
 xhr.withCredentials = true;
+
 /* HTTP Body를 JSON 형태로 보낼 것이라고 수신측에 알려줍니다. */
 xhr.setRequestHeader('Content-Type', 'application/json');
+
 /* xhr 객체를 통해 HTTP 요청을 실행합니다. */
 xhr.send("{'data':'WhoAmI'}");
 ```
@@ -127,7 +131,7 @@ Access-Control-Allow-Headers: Content-Type
 |Access-Control-Allow-Headers|헤더 값에 해당하는 헤더의 사용 가능 여부를 나타냅니다.|
 
 ## JSONP  
-**JSONP**(JSON with Padding) 방식은 **SOP에 영향을 받지 않는 특징**을 이용해 **<script> 태그로 Cross Origin의 데이터를 불러옵니다.**  
+**JSONP**(JSON with Padding) 방식은 **SOP에 영향을 받지 않는 특징**을 이용해 ``<script>`` 태그로 Cross Origin의 데이터를 불러옵니다.  
 
 아래의 코드는 **웹 리소스를 요청**하는 코드이다.  
 
@@ -168,11 +172,11 @@ myCallback({'id':'dreamhack'});
 - **Cross Origin Resource Sharing (CORS)**: **교차 출처 리소스 공유**, SOP의 제한을 받지 않고 Cross Origin의 데이터를 처리할 수 있도록 해주는 메커니즘
 
 # 퀴즈  
-1. 다음 중 CORS 헤더 방식에서 HTTP 메소드 중 OPTIONS를 통해 수신측 웹 리소스의 접근 관련 질의를 하는 과정은?
-**답 : CORS preflight**
-2. 다음 중 SOP의 동일 출처 기준을 판단하는 URI의 요소는? (모두 선택)
-**답 : Port, Host, Schema**
-3. 다음 중 SOP는 어디로부터 온 데이터를 브라우저가 읽지 못하게 하는 정책인가?
-**답 : Cross Origin**
-4. 다음 중 SOP의 제한을 완화하여 다른 Origin의 웹 리소스를 가져오는 방식은?
-**답 : CORS**
+1. 다음 중 CORS 헤더 방식에서 HTTP 메소드 중 OPTIONS를 통해 수신측 웹 리소스의 접근 관련 질의를 하는 과정은?  
+``답 : CORS preflight``
+2. 다음 중 SOP의 동일 출처 기준을 판단하는 URI의 요소는? (모두 선택)  
+``답 : Port, Host, Schema``
+3. 다음 중 SOP는 어디로부터 온 데이터를 브라우저가 읽지 못하게 하는 정책인가?  
+``답 : Cross Origin``
+4. 다음 중 SOP의 제한을 완화하여 다른 Origin의 웹 리소스를 가져오는 방식은?  
+``답 : CORS``
