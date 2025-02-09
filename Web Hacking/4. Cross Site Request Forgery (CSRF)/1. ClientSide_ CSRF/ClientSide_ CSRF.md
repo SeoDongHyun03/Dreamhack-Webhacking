@@ -103,7 +103,7 @@ location.replace('http://bank.dreamhack.io/sendmoney?to=Dreamhack&amount=1337');
 ``답 : O``
 
 3. 서버에서 HTTP의 GET 메소드가 아닌 POST 메소드로 데이터를 받으면 CSRF에 안전하다.  
-``답 : X``
+``답 : X(그런 건 없다. 메소드와 관계없이 발생할 수 있고, CSRF 토큰 등으로 막을 수 있다.)``
 
 4. CSRF 공격이 불가능할 때 XSS 공격도 불가능하다.  
-``답 : X``
+``답 : X(예상 : CSRF 토큰 등으로 CSRF는 막아도, <script> 등을 다른 문자로 대체하지 않으면 XSS는 가능하다.)``
