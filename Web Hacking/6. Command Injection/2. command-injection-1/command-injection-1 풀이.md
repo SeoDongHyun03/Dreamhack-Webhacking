@@ -1,5 +1,5 @@
 
-문제는 **특정 Host에 ping 패킷을 보내는 서비스입니다. Command Injection을 통해 플래그를 획득하세요. 플래그는 flag.py에 있습니다.** 입니다.
+문제는 **특정 Host에 ping 패킷을 보내는 서비스입니다. Command Injection을 통해 플래그를 획득하세요. 플래그는 flag.py에 있습니다.** 이다.
 
 우선 코드를 보면 다음과 같다.
 
