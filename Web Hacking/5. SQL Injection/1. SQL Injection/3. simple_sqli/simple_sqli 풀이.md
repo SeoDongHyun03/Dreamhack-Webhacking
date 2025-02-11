@@ -66,7 +66,7 @@ def login():
 app.run(host='0.0.0.0', port=8000)
 ```
 
-다음은 웹 사이트 입니다.  
+다음은 웹 사이트다.  
 
 <img src="7.jpg"> <img src="4.jpg">
 
