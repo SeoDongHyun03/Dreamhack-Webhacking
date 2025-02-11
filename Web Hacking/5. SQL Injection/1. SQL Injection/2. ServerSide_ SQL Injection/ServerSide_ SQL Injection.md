@@ -7,7 +7,7 @@
 
 <img src="15.jpg">
 
-다음은 SQL Injection 의 예시입니다.
+다음은 SQL Injection 의 예시다.
 
 원래는 맨 위에 있는 것처럼 요청을 보내서 색깔을 지정한다.
 
@@ -15,7 +15,7 @@
 
 ## SQL Injection
 
-웹 서비스에서 ID/PW 를 포함해서 **로그인**을 할 때, **게시글**의 제목과 내용을 적고 **게시**를 할 때, **ID/PW 나 제목/내용** 을 **SQL 구문**에 넣습니다.
+웹 서비스에서 ID/PW 를 포함해서 **로그인**을 할 때, **게시글**의 제목과 내용을 적고 **게시**를 할 때, **ID/PW 나 제목/내용** 을 **SQL 구문**에 넣는다.
 
 ```SQL
 /*
@@ -29,8 +29,8 @@
 SELECT * FROM accounts WHERE user_id='dreamhack' and user_pw='password'
 ```
 
-위의 코드는 로그인 할 때, 질의하는 SQL 구문에 입력한 **id, pw 가 포함**된 것을 알 수 있습니다.  
--> 이를 SQL 구문에 임의 문자열을 삽입하는 행위를 **SQL Injection** 이라고 한다.
+위의 코드는 로그인 할 때, 질의하는 SQL 구문에 입력한 **id, pw 가 포함**된 것을 알 수 있다.  
+-> 이처럼 SQL 구문에 임의 문자열을 삽입하는 행위를 **SQL Injection** 이라고 한다.
 
 ```SQL
 /*
@@ -50,25 +50,25 @@ SELECT * FROM accounts WHERE user_id='admin'
 
 <img src="4.jpg">  <img src="5.jpg">
 
-다음과 같이 데이터베이스 **user_table** 과 **login 하는 실습창**이 있습니다.
+다음과 같이 데이터베이스 **user_table** 과 **login 하는 실습창**이 있다.
 
-위와 같이 **uid, upw** 에 **guest** 를 적으면, 아래에 있는 **SQL 구문에 들어가는 것**을 볼 수 있습니다.
+위와 같이 **uid, upw** 에 **guest** 를 적으면, 아래에 있는 **SQL 구문에 들어가는 것**을 볼 수 있다.
 
 현재 admin 으로 로그인하고 싶은데 upw 를 몰라서 할 수 없다.
 
 그러나, 이를 잘 이용해서 **upw를 확인하는 곳을 주석 처리**하면 **uid 가 admin 인 경우에 로그인** 할 수 있다.
 
-참고로 주석은 --, #, /**/ 등이 있습니다.
+참고로 주석은 --, #, /**/ 등이 있다.
 
 <img src="6.jpg">  <img src="7.jpg">
 
-다음과 같이 입력해서 upw 확인하는 곳을 주석 처리하면 로그인이 돱니다.
+다음과 같이 입력해서 upw 확인하는 곳을 주석 처리하면 로그인이 된다.
 
-여기서 이 실습은 admin의 upw 을 알아내는 실습입니다.
+여기서 이 실습은 admin의 upw 을 알아내는 실습이다.
 
-SQL 에는 **UNION** 이라는 연산자가 있습니다.
+SQL 에는 **UNION** 이라는 연산자가 있다.
 
-UNION 은 **두 개 이상의 결과 집합을 결합**합니다.
+UNION 은 **두 개 이상의 결과 집합을 결합**한다.
 
 즉, 앞에는 admin 에 대한 uid 를 조회하는 구문이므로 위에 admin에 대한 upw 를 조회하는 구문을 입력해 UNION 하면 된다.
 
@@ -76,7 +76,9 @@ UNION 은 **두 개 이상의 결과 집합을 결합**합니다.
 
 그래서 공격 쿼리문을 **admin' UNION Select upw from user_table where uid='admin'--** 과 같이 적었다.
 
-그 결과 SQL 구문이 **Select uid from user_table where uid='admin' UNION Select upw from user_table where uid='admin'--' and upw='12345'** 로 변했고, admin 의 upw 인 **strawberry** 가 나온 것을 알 수 있다.
+그 결과 SQL 구문이 **Select uid from user_table where uid='admin' UNION Select upw from user_table where uid='admin'--' and upw='12345'** 로 변했다.  
+
+따라서 SQL 구문이 **Select uid from user_table where uid='admin' UNION Select upw from user_table where uid='admin'** 이고, admin 의 upw 인 **strawberry** 가 나온 것을 알 수 있다.
 
 ## Blind SQL Injection
 
@@ -241,10 +243,10 @@ SELECT * FROM accounts QHERE user_id='admin'  and user_pw='(A)'
 ```
 
 1. 다음 SQL Query의 (A) 부분에 입력 값을 넣을 수 있다고 할 때, id가 admin 계정으로 로그인이 가능한 SQL Injection 페이로드를 모두 고르시오.  
-답 : **' or 1=1-- 1**, **'+(select user_pw from accounts where user_id='admin')+'**
+답 : ``' or 1=1-- 1``, ``'+(select user_pw from accounts where user_id='admin')+'``
 
 2. 실습 모듈에서 획득한 admin의 비밀번호는 (A) 입니다. (A)에 들어갈 말로 올바른 것은?  
-답 : **strawberry**
+답 : ``strawberry``
 
 3. 다음 중 일반적인 상황에서 SQL Injection으로 할 수 없는 행위를 고르시오. (MySQL 기준)  
-답 : **내부망 침투하기**
+답 : ``내부망 침투하기``
