@@ -4,7 +4,7 @@
 **CSRF** : 임의 이용자의 권한으로 임의 주소에 **HTTP 요청**을 보낼 수 있는 취약점  
 -> 이용자를 속여서, 의도치 않은 요청에 동의하게 하는 공격  
 
-공격자가 악성 스크립트(HTML, Javascript 등)을 넣어서 이용자에게 **메일**을 보내거나 게시판에 **글을 작성**해 이용자가 이를 조회하도록 하는 방식입니다.  
+공격자가 악성 스크립트(HTML, Javascript 등)을 넣어서 이용자에게 **메일**을 보내거나 게시판에 **글을 작성**해 이용자가 이를 조회하도록 하는 방식이다.  
 
 ```http
 GET /sendmoney?to=dreamhack&amount=1337 HTTP/1.1
@@ -12,7 +12,7 @@ Host: bank.dreamhack.io
 Cookie: session=IeheighaiToo4eenahw3
 ```
 
-위의 메시지는 송금 요청하는 예시 request message 입니다.  
+위의 메시지는 송금 요청하는 예시 request message 이다.  
 
 ```python
 # 이용자가 /sendmoney에 접속했을때 아래와 같은 송금 기능을 웹 서비스가 실행함.
@@ -35,11 +35,11 @@ def sendmoney(name):
 		return "Send fail."
 ```
 
-위의 파이썬 코드는 이전에 적었던 request message를 보내는 코드입니다.
+위의 파이썬 코드는 이전에 적었던 request message를 보내는 코드다.
 
 ## CSRF 동작
 
-``<img>`` 를 사용하거나 웹 페이지에 입력된 양식을 전송하는 ``<form>`` 를 사용하는 방법이 있습니다.  
+``<img>`` 를 사용하거나 웹 페이지에 입력된 양식을 전송하는 ``<form>`` 를 사용하는 방법이 있다.  
 
 <img src="4.png">  
 
@@ -47,7 +47,7 @@ def sendmoney(name):
 <img src='http://bank.dreamhack.io/sendmoney?to=Dreamhack&amount=1337' width=0px height=0px>
 ```
 
-위의 코드는 ``<img>`` 태그로 만든 공격 코드 예시이다.  
+위의 코드는 ``<img>`` 태그로 만든 공격 코드 예시다.  
 
 ```Javascript
 /* 새 창 띄우기 */
@@ -57,24 +57,24 @@ location.href = 'http://bank.dreamhack.io/sendmoney?to=Dreamhack&amount=1337';
 location.replace('http://bank.dreamhack.io/sendmoney?to=Dreamhack&amount=1337');
 ```
 
-위에 있는 코드들처럼 ``<img>`` 태그나 ``location.href`` 등을 사용해서 csrf 공격을 합니다.
+위에 있는 코드들처럼 ``<img>`` 태그나 ``location.href`` 등을 사용해서 csrf 공격을 한다.
 
 ## CSRF 실습(개편 전 실습, 추후에 추가)
 
 <img src="2.jpg">
 
-위에 있던 송금을 하게끔 csrf 공격을 합니다.
+위에 있던 송금을 하게끔 csrf 공격을 한다.
 
 <img src="3.jpg">
 
-다음과 같이 적으면, 한 번 요청되면 1000000원이 송금됩니다.
+다음과 같이 적으면, 한 번 요청되면 1000000원이 송금된다.
 
 ```html
 <img src="/sendmoney?to=dreamhack&amount=1337">
 <img src=1 onerror="fetch('/sendmoney?to=dreamhack&amount=1337');">
 <link rel="stylesheet" href="/sendmoney?to=dreamhack&amount=1337">
 ```
-위에 있는 코드처럼 여러 방식으로 csrf 공격을 할 수 있습니다.
+위에 있는 코드처럼 여러 방식으로 csrf 공격을 할 수 있다.
 
 ## XSS와 CSRF 차이
 

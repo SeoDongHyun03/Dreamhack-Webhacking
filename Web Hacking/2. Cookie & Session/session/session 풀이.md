@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
 <img src="3.jpg">  
 
-이는 Burp Suite를 이용해 guest로 로그인했을 때의 request 메시지이다.  
+이는 Burp Suite를 이용해 guest로 로그인했을 때의 request 메시지다.  
 여기서 **로그인한 사람의 session이 나온다**는 것을 알 수 있다.  
 그래서 Burp Suite 에서 **brute force**를 통해 올바른 session을 구하기로 했다.  
 

@@ -17,7 +17,7 @@
 |``https://same-origin.com:1234/``|Cross Origin|Port가 다름|
 
 ## SOP 실습 - 브라우저 
-SOP는 Cross Origin이 아닌 **Same Origin일 때만 정보를 읽을 수 있도록** 해줍니다.  
+SOP는 Cross Origin이 아닌 **Same Origin일 때만 정보를 읽을 수 있도록** 해준다.  
 
 예 : ``https://dreamhack.io`` 에서 console 창에서 실습  
 
@@ -125,15 +125,15 @@ Access-Control-Allow-Headers: Content-Type
 
 |Header|설명|
 |---|---|
-|Access-Control-Allow-Origin|헤더 값에 해당하는 Origin에서 들어오는 요청만 처리합니다.|
-|Access-Control-Allow-Methods|헤더 값에 해당하는 메소드의 요청만 처리합니다.|
-|Access-Control-Allow-Credentials|쿠키 사용 여부를 판단합니다. 예시의 경우 쿠키의 사용을 허용합니다.|
-|Access-Control-Allow-Headers|헤더 값에 해당하는 헤더의 사용 가능 여부를 나타냅니다.|
+|Access-Control-Allow-Origin|헤더 값에 해당하는 Origin에서 들어오는 요청만 처리한다.|
+|Access-Control-Allow-Methods|헤더 값에 해당하는 메소드의 요청만 처리한다.|
+|Access-Control-Allow-Credentials|쿠키 사용 여부를 판단합니다. 예시의 경우 쿠키의 사용을 허용한다.|
+|Access-Control-Allow-Headers|헤더 값에 해당하는 헤더의 사용 가능 여부를 나타낸다.|
 
 ## JSONP  
-**JSONP**(JSON with Padding) 방식은 **SOP에 영향을 받지 않는 특징**을 이용해 ``<script>`` 태그로 Cross Origin의 데이터를 불러옵니다.  
+**JSONP**(JSON with Padding) 방식은 **SOP에 영향을 받지 않는 특징**을 이용해 ``<script>`` 태그로 Cross Origin의 데이터를 불러온다.  
 
-아래의 코드는 **웹 리소스를 요청**하는 코드이다.  
+아래의 코드는 **웹 리소스를 요청**하는 코드다.  
 
 ```javascript
 <script>
